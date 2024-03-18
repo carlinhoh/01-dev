@@ -2,7 +2,7 @@
 https://leetcode.com/problems/intersection-of-two-arrays/submissions/1207362969/
 
 Time:O(N+M)
-Space: O(N), If the res Hashset does not count O(1)
+Space: O(M), If the res Hashset does not count O(1)
 */
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
