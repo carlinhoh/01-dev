@@ -34,3 +34,34 @@ public class Solution {
         return root;
     }
 }
+
+
+public class Solution {
+    private int preorderIndex;
+    private Dictionary<int, int> inorderIndexMap;
+
+    public TreeNode BuildTree(int[] preorder, int[] inorder) {
+        preorderIndex = 0;
+        inorderIndexMap = new Dictionary<int, int>();
+        
+        for(int i = 0; i < inorder.Length; i++){
+            inorderIndexMap.Add(inorder[i], i);
+        }
+
+        return BuildTreeHelper(preorder, preorderIndex, preorder.Length - 1);
+    }
+
+    private TreeNode BuildTreeHelper(int[] preorder, int left, int right) {
+        if(left > right){
+            return null;
+        }
+
+        int rootValue = preorder[preorderIndex++];
+        TreeNode root = new TreeNode(rootValue);
+
+        root.left = BuildTreeHelper(preorder, left, inorderIndexMap[rootValue] - 1);
+        root.right = BuildTreeHelper(preorder, inorderIndexMap[rootValue] + 1, right);
+        
+        return root;
+    }
+}
