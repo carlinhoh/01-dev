@@ -1,7 +1,8 @@
 /*
 https://leetcode.com/problems/random-pick-with-weight/submissions/1243784370/
 
-Time: Constructor = O(n), PickIndex = O
+Time: Constructor = O(n), PickIndex = O(logn)
+Space: Constructor = O(n), PickIndex = O(1)
 */
     public class Solution {
 
