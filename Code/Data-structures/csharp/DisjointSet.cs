@@ -1,4 +1,3 @@
-
 public class DisjointSet<T>
 {
     private readonly Dictionary<T, int> rank;
@@ -21,7 +20,8 @@ public class DisjointSet<T>
 
     public void AddRange(List<T> elements)
     {
-        foreach(var element in elements){
+        foreach (var element in elements)
+        {
             if (!root.ContainsKey(element))
             {
                 rank[element] = 1;
