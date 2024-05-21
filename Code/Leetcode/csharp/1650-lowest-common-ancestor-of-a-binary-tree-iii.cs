@@ -1,5 +1,8 @@
 /*
-Depth 
+Depth https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/submissions/1264347250/
+
+Time: O(h)
+Space: O(1)
 
 Two pointers https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/submissions/1264344167/
 
@@ -10,16 +13,6 @@ https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/submis
 
 Time: O(n)
 Space: O(d), where d is the number of unique nodes in the path between p and q. O(n) in case of a degenerate (or pathological) tree (each parent node has only one associated child node).
-*/
-
-/*
-// Definition for a Node.
-public class Node {
-    public int val;
-    public Node left;
-    public Node right;
-    public Node parent;
-}
 */
 
 public class Solution {
