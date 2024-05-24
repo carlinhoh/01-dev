@@ -1,10 +1,13 @@
 /*
-freq counter
+freq counter https://leetcode.com/problems/find-common-elements-between-two-arrays/submissions/1266146689/
+
+Time: O(1)
+Space: O(1)
 
 2 hashs https://leetcode.com/problems/find-common-elements-between-two-arrays/submissions/1266093324/
 
-Time: O(n+m)
-Space: O(n+m)
+Time: O(1)
+Space: O(1)
 */
 public class Solution {
     public int[] FindIntersectionValues(int[] nums1, int[] nums2) {
