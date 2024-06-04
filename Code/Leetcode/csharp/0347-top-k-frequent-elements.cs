@@ -1,12 +1,82 @@
 /**
 #blind-75
 #neetcode-150
+
+Quick Select https://leetcode.com/problems/top-k-frequent-elements/submissions/1276944777/
+
+Time: O(N²), Average O(N)
+Space: O(N)
+
 https://leetcode.com/problems/top-k-frequent-elements/submissions/1151963042/
 
 Time: O(N)
 Space: O(N)
 **/
 
+
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k) {
+        Dictionary<int, int> frequencyDict = new Dictionary<int, int>();
+        foreach (int num in nums) {
+            if (frequencyDict.ContainsKey(num)) {
+                frequencyDict[num]++;
+            } else {
+                frequencyDict[num] = 1;
+            }
+        }
+
+        List<(int element, int frequency)> frequencyList = new List<(int, int)>();
+        foreach (var pair in frequencyDict) {
+            frequencyList.Add((pair.Key, pair.Value));
+        }
+
+        QuickSelect(frequencyList, 0, frequencyList.Count - 1, k - 1);
+
+        int[] result = new int[k];
+
+        for (int i = 0; i < k; i++) {
+            result[i] = frequencyList[i].element;
+        }
+
+        return result;
+    }
+
+    private void QuickSelect(List<(int element, int frequency)> nums, int left, int right, int k) {
+        if (left == right) {
+            return;
+        }
+
+        int pivot = Partition(nums, left, right);
+
+        if (pivot > k) {
+            QuickSelect(nums, left, pivot - 1, k);
+        } else if (pivot < k) {
+            QuickSelect(nums, pivot + 1, right, k);
+        }
+    }
+
+    private int Partition(List<(int element, int frequency)> nums, int left, int right) {
+        var pivot = nums[right];
+        int p = left;
+
+        for (int i = left; i < right; i++) {
+            if (nums[i].frequency > pivot.frequency) {
+                Swap(nums, p, i);
+                p++;
+            }
+        }
+
+        Swap(nums, p, right);
+
+        return p;
+    }
+
+    private void Swap(List<(int element, int frequency)> nums, int x, int y) {
+        var temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
+    }
+}
 public class Solution {
     public int[] TopKFrequent(int[] nums, int k) {
         if(k==nums.Length){
