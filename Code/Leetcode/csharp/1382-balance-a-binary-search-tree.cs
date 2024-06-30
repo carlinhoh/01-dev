@@ -3,8 +3,7 @@ https://leetcode.com/problems/balance-a-binary-search-tree/submissions/130134752
 
 Time: O(n)
 Space: O(n)
-*/
-public class Solution {
+*/-public class Solution {
     List<int> orderedTree = new List<int>();
     public TreeNode BalanceBST(TreeNode root) {
             Traversal(root);
