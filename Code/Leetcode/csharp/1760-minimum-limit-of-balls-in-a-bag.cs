@@ -1,3 +1,9 @@
+/*
+https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag/submissions/1472957078
+
+Time: O(M * log(n)), where M is nums.Max()
+Space: O(1)
+*/
 public class Solution {
     public int MinimumSize(int[] nums, int maxOperations)
     {
